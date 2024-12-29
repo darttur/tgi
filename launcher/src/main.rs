@@ -1093,14 +1093,14 @@ fn shard_manager(
     }
 
     // If disable_custom_kernels is true, pass it to the shard as an env var
-    if disable_custom_kernels {
-        envs.push(("DISABLE_CUSTOM_KERNELS".into(), "True".into()))
-    }
+    // if disable_custom_kernels {
+    //     envs.push(("DISABLE_CUSTOM_KERNELS".into(), "True".into()))
+    // }
 
-    // Watermark Gamma
-    if let Some(watermark_gamma) = watermark_gamma {
-        envs.push(("WATERMARK_GAMMA".into(), watermark_gamma.to_string().into()))
-    }
+    // // Watermark Gamma
+    // if let Some(watermark_gamma) = watermark_gamma {
+    //     envs.push(("WATERMARK_GAMMA".into(), watermark_gamma.to_string().into()))
+    // }
 
     // Watermark Delta
     if let Some(watermark_delta) = watermark_delta {
