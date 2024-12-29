@@ -32,10 +32,10 @@ class WatermarkLogitsProcessor(LogitsProcessor):
         device: str = "cpu",
     ):
         # watermarking parameters
-        self.gamma = gamma
-        self.delta = delta
+        self.gamma = gamma if gamma is not None else GAMMA
+        self.delta = delta if delta is not None else DELTA
         self.rng = torch.Generator(device=device)
-        self.hash_key = hash_key
+        self.hash_key = hash_key if hash_key is not None else 15485863
 
     def _seed_rng(self, input_ids: Union[List[int], torch.LongTensor]):
         if isinstance(input_ids, list):
