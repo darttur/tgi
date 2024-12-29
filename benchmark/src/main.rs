@@ -94,15 +94,6 @@ struct Args {
     #[clap(long, env)]
     watermark: bool,
 
-    #[clap(long, env)]
-    gamma: f32,
-
-    #[clap(long, env)]
-    delta: f32,
-
-    #[clap(long, env)]
-    hash_key: u64,
-
     /// Generation parameter in case you want to specifically test/debug particular
     /// decoding strategies, for full doc refer to the `text-generation-server`
     #[clap(long, env)]
@@ -135,9 +126,6 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         repetition_penalty,
         frequency_penalty,
         watermark,
-        gamma,
-        delta,
-        hash_key,
         do_sample,
         master_shard_uds_path,
         top_n_tokens,
@@ -210,9 +198,6 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
                 repetition_penalty,
                 frequency_penalty,
                 watermark,
-                gamma,
-                delta,
-                hash_key,
                 do_sample,
                 sharded_client,
             )

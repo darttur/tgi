@@ -25,9 +25,6 @@ class NextTokenChooser:
     def __init__(
         self,
         watermark: bool = False,
-        gamma: float = 0.5,
-        delta: float = 2.0,
-        hash_key: int = 15485863,
         temperature: float = 1.0,
         repetition_penalty: float = 1.0,
         frequency_penalty: float = 0.0,
@@ -43,9 +40,7 @@ class NextTokenChooser:
         fsm_grammar_state: int = 0,
     ):
         self.watermark_processor = (
-            WatermarkLogitsProcessor(
-                gamma=gamma, delta=delta, hash_key=hash_key, device=device
-            ) if watermark else None
+            WatermarkLogitsProcessor(device=device) if watermark else None
         )
         self.repetition_processor = (
             RepetitionPenaltyLogitsProcessor(penalty=repetition_penalty)
@@ -118,9 +113,6 @@ class NextTokenChooser:
     ) -> "NextTokenChooser":
         return NextTokenChooser(
             watermark=pb.watermark,
-            gamma=pb.gamma,
-            delta=pb.delta,
-            hash_key=pb.hash_key,
             temperature=pb.temperature,
             repetition_penalty=pb.repetition_penalty,
             frequency_penalty=pb.frequency_penalty,
@@ -244,9 +236,6 @@ class HeterogeneousNextTokenChooser:
         dtype: torch.dtype,
         device: torch.device,
         watermark: List[bool],
-        gamma: List[float],
-        delta: List[float],
-        hash_key: List[int],
         temperature: List[float],
         repetition_penalty: List[float],
         frequency_penalty: List[float],
@@ -265,9 +254,7 @@ class HeterogeneousNextTokenChooser:
         self.watermark_processor = (
             HeterogeneousProcessorWrapper(
                 {
-                    i: WatermarkLogitsProcessor(
-                        gamma=gamma[i], delta=delta[i], hash_key=hash_key[i], device=device
-                    )
+                    i: WatermarkLogitsProcessor(device=device)
                     for i, do_watermark in enumerate(watermark)
                     if do_watermark
                 }
@@ -497,9 +484,6 @@ class HeterogeneousNextTokenChooser:
     ) -> "HeterogeneousNextTokenChooser":
         return HeterogeneousNextTokenChooser(
             watermark=[pb_.watermark for pb_ in pb],
-            gamma=[pb_.gamma for pb_ in pb],
-            delta=[pb_.delta for pb_ in pb],
-            hash_key=[pb_.hash_key for pb_ in pb],
             temperature=[pb_.temperature for pb_ in pb],
             repetition_penalty=[pb_.repetition_penalty for pb_ in pb],
             frequency_penalty=[pb_.frequency_penalty for pb_ in pb],

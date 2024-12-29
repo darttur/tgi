@@ -21,6 +21,7 @@ from typing import List, Union
 
 GAMMA = float(os.getenv("WATERMARK_GAMMA", 0.5))
 DELTA = float(os.getenv("WATERMARK_DELTA", 2.0))
+HASH_KEY = int(os.getenv("WATERMARK_HASH_KEY", 15485863))
 
 
 class WatermarkLogitsProcessor(LogitsProcessor):
@@ -28,14 +29,14 @@ class WatermarkLogitsProcessor(LogitsProcessor):
         self,
         gamma: float = GAMMA,
         delta: float = DELTA,
-        hash_key: int = 15485863,  # just a large prime number to create a rng seed with sufficient bit width
+        hash_key: int = HASH_KEY,  # just a large prime number to create a rng seed with sufficient bit width
         device: str = "cpu",
     ):
         # watermarking parameters
-        self.gamma = gamma if gamma is not None else GAMMA
-        self.delta = delta if delta is not None else DELTA
+        self.gamma = gamma
+        self.delta = delta
         self.rng = torch.Generator(device=device)
-        self.hash_key = hash_key if hash_key is not None else 15485863
+        self.hash_key = hash_key
 
     def _seed_rng(self, input_ids: Union[List[int], torch.LongTensor]):
         if isinstance(input_ids, list):

@@ -57,9 +57,6 @@ async def test_compressed_tensors_w8a8_int_dynamic_weight_all_params(
         truncate=5,
         typical_p=0.9,
         watermark=True,
-        gamma=0.5,
-        delta=2.0,
-        hash_key=15485863,
         decoder_input_details=True,
         seed=0,
     )

@@ -40,9 +40,6 @@ async def test_mamba_all_params(fused_kernel_mamba, response_snapshot):
         truncate=5,
         typical_p=0.9,
         watermark=True,
-        gamma=0.5,
-        delta=2.0,
-        hash_key=15485863,
         decoder_input_details=True,
         seed=0,
     )

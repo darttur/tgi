@@ -819,6 +819,8 @@ struct Args {
     watermark_gamma: Option<f32>,
     #[clap(long, env)]
     watermark_delta: Option<f32>,
+    #[clap(long, env)]
+    watermark_hash_key: Option<u64>,
 
     /// Enable ngrok tunneling
     #[clap(long, env)]
@@ -901,6 +903,7 @@ fn shard_manager(
     disable_custom_kernels: bool,
     watermark_gamma: Option<f32>,
     watermark_delta: Option<f32>,
+    watermark_hash_key: Option<u64>,
     cuda_graphs: Vec<usize>,
     cuda_memory_fraction: f32,
     rope_scaling: Option<RopeScaling>,
@@ -1105,6 +1108,11 @@ fn shard_manager(
     // Watermark Delta
     if let Some(watermark_delta) = watermark_delta {
         envs.push(("WATERMARK_DELTA".into(), watermark_delta.to_string().into()))
+    }
+
+    // Watermark Hash Key
+    if let Some(watermark_hash_key) = watermark_hash_key {
+        envs.push(("WATERMARK_HASH_KEY".into(), watermark_hash_key.to_string().into()))
     }
 
     // Start process
@@ -1549,6 +1557,7 @@ fn spawn_shards(
         let disable_custom_kernels = args.disable_custom_kernels;
         let watermark_gamma = args.watermark_gamma;
         let watermark_delta = args.watermark_delta;
+        let watermark_hash_key = args.watermark_hash_key;
         let cuda_graphs_clone = cuda_graphs.clone();
         let cuda_memory_fraction = args.cuda_memory_fraction;
         let rope_scaling = args.rope_scaling;
@@ -1575,6 +1584,7 @@ fn spawn_shards(
                 disable_custom_kernels,
                 watermark_gamma,
                 watermark_delta,
+                watermark_hash_key,
                 cuda_graphs_clone,
                 cuda_memory_fraction,
                 rope_scaling,

@@ -211,9 +211,6 @@ impl Validation {
             truncate,
             seed,
             watermark,
-            gamma,
-            delta,
-            hash_key,
             decoder_input_details,
             top_n_tokens,
             grammar,
@@ -396,9 +393,6 @@ impl Validation {
             do_sample,
             seed,
             watermark,
-            gamma,
-            delta,
-            hash_key,
             grammar,
         };
         let stopping_parameters = ValidStoppingParameters {
@@ -755,16 +749,9 @@ pub struct ValidParameters {
     pub frequency_penalty: f32,
     /// / token watermarking using "A Watermark for Large Language Models"
     pub watermark: bool,
-    /// / gamma parameter for the watermarking
-    pub gamma: f32,
-    /// / delta parameter for the watermarking
-    pub delta: f32,
-    /// / hash key for the watermarking
-    pub hash_key: u64,
     /// / grammar (applied if not empty)
     pub grammar: Option<ValidGrammar>,
 }
-
 
 #[derive(Debug, Clone)]
 pub struct ValidStoppingParameters {

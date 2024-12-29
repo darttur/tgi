@@ -378,7 +378,11 @@ Options:
 ```shell
       --watermark-delta <WATERMARK_DELTA>
           [env: WATERMARK_DELTA=]
-
+```
+## WATERMARK_HASH_KEY
+```shell
+      --watermark-hash-key <WATERMARK_HASH_KEY>
+          [env: WATERMARK_HASH_KEY=]
 ```
 ## NGROK
 ```shell

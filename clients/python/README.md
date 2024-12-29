@@ -157,9 +157,6 @@ class Parameters:
     best_of: Optional[int]
     # Watermarking with [A Watermark for Large Language Models](https://arxiv.org/abs/2301.10226)
     watermark: bool
-    gamma: Optional[float]
-    delta: Optional[float]
-    hash_key: Optional[float]
     # Get generation details
     details: bool
     # Get decoder input token logprobs and ids

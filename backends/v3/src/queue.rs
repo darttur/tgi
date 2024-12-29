@@ -521,9 +521,6 @@ impl From<ValidParameters> for NextTokenChooserParameters {
             repetition_penalty: value.repetition_penalty,
             frequency_penalty: value.frequency_penalty,
             watermark: value.watermark,
-            gamma: value.gamma,
-            delta: value.delta,
-            hash_key: value.hash_key,
             grammar,
             grammar_type: grammar_type.into(),
         }
@@ -571,9 +568,6 @@ mod tests {
                     repetition_penalty: 0.0,
                     frequency_penalty: 0.0,
                     watermark: false,
-                    gamma: 0.5,
-                    delta: 2.0,
-                    hash_key: 15485863,
                     grammar: None,
                 },
                 stopping_parameters: ValidStoppingParameters {

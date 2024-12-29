@@ -76,9 +76,6 @@ message NextTokenChooserParameters {
     float frequency_penalty = 9;
     /// token watermarking using "A Watermark for Large Language Models"
     bool watermark = 8;
-    float gamma = 12;
-    float delta = 13;
-    uint64 hash_key = 14;
     /// grammar (applied if not empty)
     string grammar = 10;
     /// grammar type

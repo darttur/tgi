@@ -17,9 +17,6 @@ pub(crate) fn parameters_table(
     repetition_penalty: Option<f32>,
     frequency_penalty: Option<f32>,
     watermark: bool,
-    gamma: f32,
-    delta: f32,
-    hash_key: u64,
     do_sample: bool,
 ) -> Table {
     let mut builder = Builder::default();
@@ -39,9 +36,6 @@ pub(crate) fn parameters_table(
     builder.push_record(["Repetition Penalty", &format!("{repetition_penalty:?}")]);
     builder.push_record(["Frequency Penalty", &format!("{frequency_penalty:?}")]);
     builder.push_record(["Watermark", &watermark.to_string()]);
-    builder.push_record(["Gamma", &format!("{gamma:?}")]);
-    builder.push_record(["Delta", &format!("{delta:?}")]);
-    builder.push_record(["Hash Key", &format!("{hash_key:?}")]);
     builder.push_record(["Do Sample", &do_sample.to_string()]);
 
     let mut table = builder.build();

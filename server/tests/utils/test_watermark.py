@@ -8,6 +8,7 @@ from text_generation_server.utils.watermark import WatermarkLogitsProcessor
 
 GAMMA = os.getenv("WATERMARK_GAMMA", 0.5)
 DELTA = os.getenv("WATERMARK_DELTA", 2.0)
+HASH_KEY = os.getenv("WATERMARK_HASH_KEY", 15485863)
 
 
 def test_seed_rng():

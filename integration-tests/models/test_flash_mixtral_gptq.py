@@ -45,9 +45,6 @@ async def test_flash_mixtral_gptq_all_params(flash_mixtral_gptq, response_snapsh
         truncate=5,
         typical_p=0.9,
         watermark=True,
-        gamma=0.5,
-        delta=2.0,
-        hash_key=15485863,
         decoder_input_details=True,
         seed=0,
     )

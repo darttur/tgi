@@ -32,9 +32,6 @@ pub async fn run(
     repetition_penalty: Option<f32>,
     frequency_penalty: Option<f32>,
     watermark: bool,
-    gamma: f32,
-    delta: f32,
-    hash_key: u64,
     do_sample: bool,
     client: ShardedClient,
 ) -> Result<(), std::io::Error> {
@@ -48,9 +45,6 @@ pub async fn run(
         repetition_penalty: repetition_penalty.unwrap_or(1.0),
         frequency_penalty: frequency_penalty.unwrap_or(0.0),
         watermark,
-        gamma: 0.5,
-        delta: 2.0,
-        hash_key: 15485863,
         grammar: String::new(),
         grammar_type: GrammarType::None as i32,
     };
@@ -152,9 +146,6 @@ pub async fn run(
         repetition_penalty,
         frequency_penalty,
         watermark,
-        gamma,
-        delta,
-        hash_key,
         do_sample,
     );
     println!("\n{parameters_table}\n");

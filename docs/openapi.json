@@ -1696,34 +1696,6 @@
             "description": "Watermarking with [A Watermark for Large Language Models](https://arxiv.org/abs/2301.10226).",
             "default": "false",
             "example": true
-          },
-          "gamma": {
-            "type": "number",
-            "format": "float",
-            "description": "The gamma value used in watermarking.",
-            "default": "null",
-            "example": 0.5,
-            "nullable": true,
-            "exclusiveMinimum": 0
-          },
-          "delta": {
-            "type": "number",
-            "format": "float",
-            "description": "The delta value used in watermarking.",
-            "default": "null",
-            "example": 2.0,
-            "nullable": true,
-            "exclusiveMinimum": 0
-          },
-          "hash_key": {
-            "type": "integer",
-            "format": "int64",
-            "description": "The hash key used in watermarking.",
-            "default": "null",
-            "example": "null",
-            "nullable": true,
-            "minimum": 0,
-            "exclusiveMinimum": 0
           }
         }
       },

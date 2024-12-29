@@ -356,36 +356,6 @@ pub(crate) struct GenerateParameters {
     #[schema(default = "false", example = true)]
     pub watermark: bool,
 
-    /// Gamma parameter for watermarking.
-    #[serde(default)]
-    #[schema(
-        exclusive_minimum = 0.0,
-        nullable = true,
-        default = "null",
-        example = 0.5
-    )]
-    pub gamma: f32,
-
-    /// Delta parameter for watermarking.
-    #[serde(default)]
-    #[schema(
-        exclusive_minimum = 0.0,
-        nullable = true,
-        default = "null",
-        example = 2.0
-    )]
-    pub delta: f32,
-
-    /// Hash key for watermarking.
-    #[serde(default)]
-    #[schema(
-        exclusive_minimum = 0,
-        nullable = true,
-        default = "null",
-        example = 15485863
-    )]
-    pub hash_key: u64,
-
     /// Whether to return generation details.
     #[serde(default)]
     #[schema(default = "true")]
@@ -437,9 +407,6 @@ fn default_parameters() -> GenerateParameters {
         stop: Vec::new(),
         truncate: None,
         watermark: false,
-        gamma: 0.5,
-        delta: 2.0,
-        hash_key: 15485863,
         details: false,
         decoder_input_details: false,
         seed: None,
@@ -1032,9 +999,6 @@ impl ChatRequest {
                     stop,
                     truncate: None,
                     watermark: false,
-                    gamma: 0.5,
-                    delta: 2.0,
-                    hash_key: 15485863,
                     details: true,
                     decoder_input_details: false,
                     seed,
