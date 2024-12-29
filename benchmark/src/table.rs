@@ -17,6 +17,9 @@ pub(crate) fn parameters_table(
     repetition_penalty: Option<f32>,
     frequency_penalty: Option<f32>,
     watermark: bool,
+    gamma: Option<f32>,
+    delta: Option<f32>,
+    hash_key: Option<u64>,
     do_sample: bool,
 ) -> Table {
     let mut builder = Builder::default();
