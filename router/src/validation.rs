@@ -765,6 +765,7 @@ pub struct ValidParameters {
     pub grammar: Option<ValidGrammar>,
 }
 
+
 #[derive(Debug, Clone)]
 pub struct ValidStoppingParameters {
     /// / Maximum number of generated tokens
