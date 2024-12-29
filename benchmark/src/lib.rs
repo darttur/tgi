@@ -48,9 +48,9 @@ pub async fn run(
         repetition_penalty: repetition_penalty.unwrap_or(1.0),
         frequency_penalty: frequency_penalty.unwrap_or(0.0),
         watermark,
-        gamma: gamma.unwrap_or(0.5),
-        delta: delta.unwrap_or(2.0),
-        hash_key: hash_key.unwrap_or(15485863),
+        gamma: 0.5,
+        delta: 2.0,
+        hash_key: 15485863,
         grammar: String::new(),
         grammar_type: GrammarType::None as i32,
     };
