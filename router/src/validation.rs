@@ -756,11 +756,11 @@ pub struct ValidParameters {
     /// / token watermarking using "A Watermark for Large Language Models"
     pub watermark: bool,
     /// / gamma parameter for the watermarking
-    pub gamma: Option<f32>,
+    pub gamma: f32,
     /// / delta parameter for the watermarking
-    pub delta: Option<f32>,
+    pub delta: f32,
     /// / hash key for the watermarking
-    pub hash_key: Option<u64>,
+    pub hash_key: u64,
     /// / grammar (applied if not empty)
     pub grammar: Option<ValidGrammar>,
 }

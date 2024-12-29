@@ -32,9 +32,9 @@ pub async fn run(
     repetition_penalty: Option<f32>,
     frequency_penalty: Option<f32>,
     watermark: bool,
-    gamma: Option<f32>,
-    delta: Option<f32>,
-    hash_key: Option<u64>,
+    gamma: f32,
+    delta: f32,
+    hash_key: u64,
     do_sample: bool,
     client: ShardedClient,
 ) -> Result<(), std::io::Error> {

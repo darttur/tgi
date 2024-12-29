@@ -816,9 +816,9 @@ struct Args {
     api_key: Option<String>,
 
     #[clap(long, env)]
-    watermark_gamma: Option<f32>,
+    watermark_gamma: f32,
     #[clap(long, env)]
-    watermark_delta: Option<f32>,
+    watermark_delta: f32,
 
     /// Enable ngrok tunneling
     #[clap(long, env)]
@@ -899,8 +899,8 @@ fn shard_manager(
     huggingface_hub_cache: Option<String>,
     weights_cache_override: Option<String>,
     disable_custom_kernels: bool,
-    watermark_gamma: Option<f32>,
-    watermark_delta: Option<f32>,
+    watermark_gamma: f32,
+    watermark_delta: f32,
     cuda_graphs: Vec<usize>,
     cuda_memory_fraction: f32,
     rope_scaling: Option<RopeScaling>,

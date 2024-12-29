@@ -364,7 +364,7 @@ pub(crate) struct GenerateParameters {
         default = "null",
         example = 0.5
     )]
-    pub gamma: Option<f32>,
+    pub gamma: f32,
 
     /// Delta parameter for watermarking.
     #[serde(default)]
@@ -374,7 +374,7 @@ pub(crate) struct GenerateParameters {
         default = "null",
         example = 2.0
     )]
-    pub delta: Option<f32>,
+    pub delta: f32,
 
     /// Hash key for watermarking.
     #[serde(default)]
@@ -384,7 +384,7 @@ pub(crate) struct GenerateParameters {
         default = "null",
         example = 15485863
     )]
-    pub hash_key: Option<u64>,
+    pub hash_key: u64,
 
     /// Whether to return generation details.
     #[serde(default)]

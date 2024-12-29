@@ -95,13 +95,13 @@ struct Args {
     watermark: bool,
 
     #[clap(long, env)]
-    gamma: Option<f32>,
+    gamma: f32,
 
     #[clap(long, env)]
-    delta: Option<f32>,
+    delta: f32,
 
     #[clap(long, env)]
-    hash_key: Option<u64>,
+    hash_key: u64,
 
     /// Generation parameter in case you want to specifically test/debug particular
     /// decoding strategies, for full doc refer to the `text-generation-server`
